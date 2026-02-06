@@ -16,7 +16,12 @@ Add the dependency to your project:
 
 This basically boils down to only two things:
 
-. It'll transitively pull in necessary dependencies and t will route JUL and SLF4J (1 &amp; 2) to log4j2, so you can use those APIs and have the output end up in log4j2.
+. It'll transitively pull in necessary dependencies
+. will route JUL and SLF4J (1 &amp; 2) to log4j2, so you can use those APIs and have the output end up in log4j2.
+
+The only thing left to do is add a 'log4j2.xml' configuration file to your project, and you're good to go.
+
+=== Usage as a test dependency
 
 This is possible too:
 
