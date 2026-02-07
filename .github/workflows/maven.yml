@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  maven:
     runs-on: ubuntu-latest
     env:
       MAVEN_ARGS: '--no-transfer-progress --color always'
