@@ -8,7 +8,9 @@
 
   <version>1.0-SNAPSHOT</version>
   <description>
-    Just arranges dependencies to set up log4j2. Arranges logging from jul and slf4j (1 &amp; 2) to log4j2.
+    Just arranges dependencies to set up log4j2. Logging from jul and slf4j (1 &amp; 2) to log4j2.
+
+    The artifact with classifier 'test' also provides log4j2 configuration itself, and sets it up for junit tests.
   </description>
 
   <licenses>
