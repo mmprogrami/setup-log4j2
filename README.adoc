@@ -1,4 +1,5 @@
 = Set up log4j2
+:toc:
 
 Just arranges dependencies to set up log4j2. Arranges logging from jul and slf4j (1 &amp; 2) to log4j2.
 
@@ -21,7 +22,7 @@ This basically boils down to only two things:
 
 The only thing left to do is add a 'log4j2.xml' configuration file to your project, and you're good to go.
 
-=== Usage as a test dependency
+== As a test dependency
 
 This is possible too:
 
@@ -36,3 +37,26 @@ This is possible too:
 </dependency>
 ----
 This will accomplish the same things, but this jar also includes a default `log4j2-test.xml` configuration file, which will then be used when running tests. This is useful if you want to use logging in your test with minimal hassle in setting it up. You don't even have to provide log4j2 configuration then. It will log INFO and above to the console.
+
+=== Override the root level
+
+This can be done with the system property log4j2.root.level
+
+[source, bash]
+----
+mvn -Dlog4j2.root.level=debug test
+----
+
+Or like so:
+
+[source, xml]
+----
+<plugin>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>3.5.4</version>
+   <configuration>
+     <systemPropertyVariables>
+        <log4j2.root.level>debug</log4j2.root.level>
+     </systemPropertyVariables>
+....
+----
