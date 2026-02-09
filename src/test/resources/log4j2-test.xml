@@ -7,20 +7,20 @@
     <Console name="stdout" target="SYSTEM_OUT">
       <PatternLayout pattern="${pattern}"  charset="UTF-8"/>
       <Filters>
-        <LevelRangeFilter levelMin="TRACE" levelMax="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+        <LevelRangeFilter minLevel="TRACE" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
       </Filters>
     </Console>
     <Console name="stderr" target="SYSTEM_ERR">
       <PatternLayout pattern="${pattern}" charset="UTF-8"/>
       <Filters>
-        <LevelRangeFilter levelMin="WARN" levelMax="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
+        <LevelRangeFilter minLevel="WARN" maxLevel="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
       </Filters>
     </Console>
   </Appenders>
   <Loggers>
     <Root level="${sys:log4j2.root.level:-INFO}">
       <AppenderRef ref="stdout"/>
-      <AppenderRef ref="stderr"/>
+      <AppenderRef ref="stderr" />
     </Root>
   </Loggers>
 </Configuration>
