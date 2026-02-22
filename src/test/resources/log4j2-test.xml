@@ -1,17 +1,19 @@
 <?xml version="1.0"?>
 <Configuration
-  status="WARN" monitorInterval="0">
+  status="WARN"
+  monitorInterval="0">
   <Properties>
-    <Property name="pattern" value="%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%C{1}&#x09;%M.%L&#x09;%m&#x09;(%t)%n"/>
+    <Property name="pattern" value="%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%C{1}&#x09;%M.%L&#x09;%m%n"/>
+    <Property name="effective_pattern" value="${sys:log4j2.pattern:-${pattern}}" />
   </Properties>
   <Appenders>
     <Console name="stdout" target="SYSTEM_OUT">
       <LevelRangeFilter minLevel="INFO" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
-      <PatternLayout pattern="${pattern}" disableAnsi="false" />
+      <PatternLayout pattern="${effective_pattern}" disableAnsi="false" />
     </Console>
     <Console name="stderr" target="SYSTEM_ERR">
       <LevelRangeFilter minLevel="FATAL" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
-      <PatternLayout pattern="${pattern}" disableAnsi="false" />
+      <PatternLayout pattern="${effective_pattern}" disableAnsi="false" />
     </Console>
   </Appenders>
   <Loggers>

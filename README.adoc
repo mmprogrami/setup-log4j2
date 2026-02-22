@@ -53,10 +53,11 @@ Or like so:
 ----
 <plugin>
   <artifactId>maven-surefire-plugin</artifactId>
-  <version>3.5.4</version>
+  <version>3.5.5</version>
    <configuration>
      <systemPropertyVariables>
         <log4j2.root.level>debug</log4j2.root.level>
+        <log4j2.pattern>%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%c{1}&#x09;%m%n</log4j2.pattern>
      </systemPropertyVariables>
 ....
 ----
