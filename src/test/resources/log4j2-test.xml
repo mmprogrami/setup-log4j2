@@ -6,15 +6,11 @@
   </Properties>
   <Appenders>
     <Console name="stdout" target="SYSTEM_OUT">
-      <Filters>
-        <LevelRangeFilter minLevel="TRACE" maxLevel="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
-      </Filters>
+      <LevelRangeFilter minLevel="INFO" maxLevel="TRACE" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="${pattern}" disableAnsi="false" />
     </Console>
     <Console name="stderr" target="SYSTEM_ERR">
-      <Filters>
-        <LevelRangeFilter minLevel="WARN" maxLevel="FATAL" onMatch="ACCEPT" onMismatch="DENY"/>
-      </Filters>
+      <LevelRangeFilter minLevel="FATAL" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
       <PatternLayout pattern="${pattern}" disableAnsi="false" />
     </Console>
   </Appenders>
