@@ -10,7 +10,7 @@ import org.junit.platform.launcher.TestPlan;
 
 
 /**
- * /logging.properties is automaticallly picked up in servlet environment.
+ * /logging.properties is automatically picked up in servlet environment.
  * <p>
  * This makes it work in jupiter tests too.
  *
