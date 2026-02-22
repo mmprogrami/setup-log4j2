@@ -3,6 +3,8 @@ package nl.mmprogrami.log4j2.test;
 import java.io.IOException;
 import java.util.logging.LogManager;
 
+import java.util.logging.Logger;
+
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestPlan;
 
@@ -20,6 +22,7 @@ public class Jul2Log4j2 implements TestExecutionListener {
     public void testPlanExecutionStarted(TestPlan testPlan) {
         try {
             LogManager.getLogManager().readConfiguration(getClass().getResourceAsStream("/logging.properties"));//, (s) -> (ss, m) -> {return m;});
+            Logger.getLogger(Jul2Log4j2.class.getName()).fine("Logging properties loaded");
         } catch (IOException ignore) {
 
         }
