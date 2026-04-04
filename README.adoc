@@ -40,14 +40,19 @@ This will accomplish the same things, but this jar also includes a default `log4
 
 === Override the root level
 
-This can be done with the system property log4j2.root.level
+You can any time place an overriding `src/main/test/resources/log4j-test.xml` anyway, but a few things can also be configured using system properties:
+
+- the root level (`log4j2.root.level`)
+- the pattern (`log4j2.pattern`)
+
+With a command line override
 
 [source, bash]
 ----
 mvn -Dlog4j2.root.level=debug test
 ----
 
-Or like so:
+Or like so, as configuration of the surefire plugin
 
 [source, xml]
 ----
