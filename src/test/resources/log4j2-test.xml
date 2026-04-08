@@ -3,7 +3,8 @@
   status="WARN"
   monitorInterval="0">
   <Properties>
-    <Property name="pattern" value="%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%C{1}&#x09;%M.%L&#x09;%m%n"/>
+    <!--Property name="pattern" value="%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%C{1}&#x09;%M.%L&#x09;%m%n"/-->
+    <Property name="pattern" value="%d{HH:mm:ss.SS} %highlight{%5.5p}&#x09;%C{1}&#x09;%M.%L&#x09;%m%n"/>
     <Property name="effective_pattern" value="${sys:log4j2.pattern:-${pattern}}" />
   </Properties>
   <Appenders>
