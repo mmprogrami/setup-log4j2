@@ -5,6 +5,7 @@ import java.util.logging.LogManager;
 
 import java.util.logging.Logger;
 
+import org.apache.logging.log4j.jul.Log4jBridgeHandler;
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestPlan;
 
@@ -21,6 +22,7 @@ public class Jul2Log4j2 implements TestExecutionListener {
     @Override
     public void testPlanExecutionStarted(TestPlan testPlan) {
         try {
+            Log4jBridgeHandler.install(true, null, true);
             LogManager.getLogManager().readConfiguration(getClass().getResourceAsStream("/logging.properties"));//, (s) -> (ss, m) -> {return m;});
             Logger.getLogger(Jul2Log4j2.class.getName()).fine("Logging properties loaded");
         } catch (IOException ignore) {
