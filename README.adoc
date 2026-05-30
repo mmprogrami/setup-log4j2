@@ -1,17 +1,19 @@
 = Set up log4j2
 :toc:
+:version: 1.3
 
 Just arranges dependencies to set up log4j2. Arranges logging from jul and slf4j (1 &amp; 2) to log4j2.
 
 == Usage
 
 Add the dependency to your project:
-[source,xml]
+
+[source,xml, subs="attributes,specialchars"]
 ----
 <dependency>
   <groupId>nl.mmprogrami</groupId>
   <artifactId>setup-log4j2</artifactId>
-  <version>1.3</version>
+  <version>{version}</version>
 </dependency>
 ----
 
@@ -26,18 +28,20 @@ The only thing left to do is add a 'log4j2.xml' configuration file to your proje
 
 This is possible too:
 
-[source,xml]
+[source,xml, subs="attributes,specialchars"]
 ----
 <dependency>
   <groupId>nl.mmprogrami</groupId>
   <artifactId>setup-log4j2</artifactId>
-  <version>1.1</version>
+  <version>{version}</version>
   <classifier>test</classifier>
   <scope>test</scope>
 </dependency>
 ----
+
 This will accomplish the same things, but this jar also includes a default `log4j2-test.xml` configuration file, which will then be used when running tests. This is useful if you want to use logging in your test with minimal hassle in setting it up. You don't even have to provide log4j2 configuration then. It will log INFO and above to the console.
 
+[#_override_the_root_level]
 === Override the root level
 
 You can any time place an overriding `src/main/test/resources/log4j-test.xml` anyway, but a few things can also be configured using system properties:
@@ -58,11 +62,14 @@ Or like so, as configuration of the surefire plugin
 ----
 <plugin>
   <artifactId>maven-surefire-plugin</artifactId>
-  <version>3.5.5</version>
+  <version>3.5.6</version>
    <configuration>
      <systemPropertyVariables>
         <log4j2.root.level>debug</log4j2.root.level>
         <log4j2.pattern>%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%c{1}&#x09;%m%n</log4j2.pattern>
      </systemPropertyVariables>
-....
+   </configuration>
+ </plugin>
 ----
+
+
