@@ -46,7 +46,8 @@ This will accomplish the same things, but this jar also includes a default `log4
 
 You can any time place an overriding `src/main/test/resources/log4j-test.xml` anyway, but a few things can also be configured using system properties:
 
-- the root level (`log4j2.root.level`)
+- the root level (`log4j2.root.level`), defaults to `TRACE`
+- the level for the stdout appender (`log4j2.stdout.level`), defaults to `INFO`
 - the pattern (`log4j2.pattern`)
 
 With a command line override
@@ -65,7 +66,7 @@ Or like so, as configuration of the surefire plugin
   <version>3.5.6</version>
    <configuration>
      <systemPropertyVariables>
-        <log4j2.root.level>debug</log4j2.root.level>
+        <log4j2.stdout.level>DEBUG</log4j2.root.level>
         <log4j2.pattern>%d{ISO8601}&#x09;%highlight{%5.5p}&#x09;%c{1}&#x09;%m%n</log4j2.pattern>
      </systemPropertyVariables>
    </configuration>
