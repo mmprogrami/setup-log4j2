@@ -54,7 +54,7 @@ With a command line override
 
 [source, bash]
 ----
-mvn -Dlog4j2.root.level=debug test
+mvn -Dlog4j2.stdout.level=debug test
 ----
 
 Or like so, as configuration of the surefire plugin
