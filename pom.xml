@@ -67,7 +67,7 @@
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
         <type>pom</type>
-        <version>6.1.0</version>
+        <version>5.14.4</version>
         <scope>import</scope>
       </dependency>
     </dependencies>
@@ -132,7 +132,7 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.15.0</version>
         <configuration>
-          <release>17</release>
+          <release>8</release>
         </configuration>
       </plugin>
       <plugin>
