@@ -4,6 +4,25 @@
 
 Just arranges dependencies to set up log4j2. Arranges logging from jul and slf4j (1 &amp; 2) to log4j2.
 
+== Ratio
+
+What I was seeing in many of the projects i was maintaining is that there was a log cruft just related to setting up logging. Especially in tests we oftentimes wound up with something
+like this in every module of the project
+
+- <module>/src/test/resources/log4j2-test.xml
+- <module>/pom.xml several dependencies in the pom.xml to pull in log4j2, slf4j and perhaps jul bridges
+
+The second thing can be avoided by putting it in the parent pom. But this is not the case for the first thing.
+
+So, the basic idea is to just provide a simple jar dependency, which transitively pulls in the necessary dependencies. This is kind of 'opiniated'. We just want log4j2 to be the logging framework, and want to have as much of available logging to show up if wanted, where at least slf4j/log4j2/jul/system logging can be expected. Just one simple depenency suffices then.
+
+A variant of the same dependency (with classifier 'test')  also includes a log4j2 configuration file.  This can be used as a 'test' dependency, and which suffices for most cases.
+
+image:screenshot.png[]
+
+So, colorized, tab separated logging, no dates (which is pointless for tests). The pattern and can be overridden as a property of the surefire plugin, or as a command line parameter, which still keeps things simpler.
+
+
 == Usage
 
 Add the dependency to your project:
