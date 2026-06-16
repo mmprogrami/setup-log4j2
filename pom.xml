@@ -6,7 +6,7 @@
   <name>setup-log4j2</name>
   <url>https://github.com/mmprogrami/setup-log4j2/tree/main/</url>
 
-  <version>1.6-SNAPSHOT</version>
+  <version>1.6</version>
   <description>
     Just arranges dependencies to set up log4j2. Logging from jul and slf4j (1 &amp; 2) to log4j2.
 
@@ -46,7 +46,7 @@
     <connection>scm:git:${project.scm.url}</connection>
     <developerConnection>scm:git:${project.scm.url}</developerConnection>
     <url>https://github.com/mmprogrami/setup-log4j2</url>
-    <tag>HEAD</tag>
+    <tag>setup-log4j2-1.6</tag>
   </scm>
 
   <properties>
