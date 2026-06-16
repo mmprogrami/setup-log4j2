@@ -6,8 +6,7 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import org.apache.logging.log4j.jul.Log4jBridgeHandler;
-import org.junit.platform.launcher.TestExecutionListener;
-import org.junit.platform.launcher.TestPlan;
+import org.junit.platform.launcher.*;
 
 
 /**
@@ -15,12 +14,11 @@ import org.junit.platform.launcher.TestPlan;
  * <p>
  * This makes it work in jupiter tests too.
  *
- * @since 5.15
  */
-public class Jul2Log4j2 implements TestExecutionListener {
+public class Jul2Log4j2 implements LauncherSessionListener {
 
     @Override
-    public void testPlanExecutionStarted(TestPlan testPlan) {
+    public void launcherSessionOpened(LauncherSession launcherSession) {
         try {
             Log4jBridgeHandler.install(true, null, true);
             LogManager.getLogManager().readConfiguration(getClass().getResourceAsStream("/logging.properties"));//, (s) -> (ss, m) -> {return m;});

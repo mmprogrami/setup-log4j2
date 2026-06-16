@@ -8,18 +8,24 @@
   </Properties>
   <Appenders>
     <Console name="stdout" target="SYSTEM_OUT">
-      <LevelRangeFilter minLevel="INFO"
-                        maxLevel="${log4j2_stdout_level}"
-                        onMatch="ACCEPT"
-                        onMismatch="DENY"/>
+      <LevelRangeFilter
+        maxLevel="${log4j2_stdout_level}"
+        minLevel="INFO"
+        onMatch="ACCEPT"
+        onMismatch="DENY"/>
       <PatternLayout pattern="${effective_pattern}" disableAnsi="false" />
     </Console>
     <Console name="stderr" target="SYSTEM_ERR">
-      <LevelRangeFilter minLevel="FATAL" maxLevel="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+      <LevelRangeFilter
+        maxLevel="WARN"
+        minLevel="FATAL"
+        onMatch="ACCEPT"
+        onMismatch="DENY"/>
       <PatternLayout pattern="${effective_pattern}" disableAnsi="false" />
     </Console>
   </Appenders>
   <Loggers>
+    <Logger name="net.jqwik.engine.JqwikConfiguration" level="WARN" />
     <Root level="${sys:log4j2.root.level:-TRACE}">
       <AppenderRef ref="stdout"/>
       <AppenderRef ref="stderr" />
