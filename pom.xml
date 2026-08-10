@@ -101,6 +101,7 @@
       <!-- java.util.logging -->
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-jul</artifactId>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <!-- System.getLogger -->
