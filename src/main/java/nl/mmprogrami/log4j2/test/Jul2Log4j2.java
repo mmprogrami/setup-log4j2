@@ -25,6 +25,8 @@ public class Jul2Log4j2 implements LauncherSessionListener {
             Logger.getLogger(Jul2Log4j2.class.getName()).fine("Logging properties loaded");
         } catch (IOException ignore) {
 
+        } catch (Exception e) {
+            System.err.println("Failed to load logging properties: " + e.getMessage());
         }
     }
 
