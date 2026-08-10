@@ -14,11 +14,5 @@
     <ignoreVersion type="regex">(?i).*M(?:-?\d+)?</ignoreVersion>
   </ignoreVersions>
   <rules>
-    <rule groupId="org.apache.camel">
-      <!-- for camel, odd minor versions are not LTS -->
-      <ignoreVersions>
-        <ignoreVersion type="regex">^\d+\.\d?[13579]\..*$</ignoreVersion>
-      </ignoreVersions>
-    </rule>
   </rules>
 </ruleset>
