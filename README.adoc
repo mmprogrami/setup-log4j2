@@ -2,6 +2,9 @@
 :toc:
 :version: 1.7
 
+image:https://img.shields.io/maven-central/v/nl.mmprogrami/setup-log4j2.svg[MavenCentral,link=https://central.sonatype.com/search?q=g%3Anl.mmprogrami]
+
+
 Just arranges dependencies to set up log4j2. Arranges logging from jul and slf4j (1 &amp; 2) to log4j2.
 
 == Ratio
