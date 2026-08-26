@@ -18,18 +18,15 @@ jobs:
           distribution: 'temurin'
           java-version: 8
           server-id: central
-          server-username: CENTRAL_USERNAME
-          server-password: CENTRAL_PASSWORD
+          server-username-env-var: CENTRAL_USERNAME
+          server-password-env-var: CENTRAL_PASSWORD
           gpg-private-key: ${{ secrets.GPG_SECRET_KEY }}
           cache: maven
-      - uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          global: true
-          name: 'github'
-          email: 'github@meeuw.org'
-          token: '${{ secrets.GITHUB_TOKEN  }}'
       - name: release
-        run: mvn -Pdeploy --batch-mode  -Darguments=-DskipTests  release:prepare release:perform
+        run: |
+          git config --global user.name 'github actions'
+          git config --global user.email 'github@mmprogrami.nl'
+          mvn -Pdeploy --batch-mode  -Darguments=-DskipTests  release:prepare release:perform
         env:
           CENTRAL_USERNAME: ${{ secrets.CENTRAL_USERNAME }}
           CENTRAL_PASSWORD: ${{ secrets.CENTRAL_PASSWORD }}
