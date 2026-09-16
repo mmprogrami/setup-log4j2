@@ -14,5 +14,11 @@
     <ignoreVersion type="regex">(?i).*M(?:-?\d+)?</ignoreVersion>
   </ignoreVersions>
   <rules>
+    <rule groupId="org.junit">
+      <!-- remain java 8 compatible for now -->
+      <ignoreVersions>
+        <ignoreVersion type="regex">^6(?:\..*)?$</ignoreVersion>
+      </ignoreVersions>
+    </rule>
   </rules>
 </ruleset>

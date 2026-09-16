@@ -25,7 +25,9 @@
     </Console>
   </Appenders>
   <Loggers>
-    <Logger name="net.jqwik.engine.JqwikConfiguration" level="WARN" />
+    <Logger name="net.jqwik.engine.JqwikConfiguration" level="${sys:log4j2.jqwik.configuratoin:-WARN}" />
+    <Logger name="net.jqwik.engine.descriptor.DiscoverySupport" level="${sys:log4j2.jqwik.discovery:-ERROR}" />
+
     <Root level="${sys:log4j2.root.level:-TRACE}">
       <AppenderRef ref="stdout"/>
       <AppenderRef ref="stderr" />
