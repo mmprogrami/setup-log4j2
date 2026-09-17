@@ -25,10 +25,13 @@
     </Console>
   </Appenders>
   <Loggers>
-    <Logger name="net.jqwik.engine.JqwikConfiguration" level="${sys:log4j2.jqwik.configuration:-INFO}"  />
-    <Logger name="net.jqwik.engine.descriptor.DiscoverySupport" level="${sys:log4j2.jqwik.discovery:-INFO}" />
+    <!-- jqwik may issue some warnings in some cases, which you may just want to dismiss -->
+    <Logger name="net.jqwik.engine.JqwikConfiguration"
+            level="${sys:log4j2.jqwik.configuration:-INFO}"  />
+    <Logger name="net.jqwik.engine.descriptor.DiscoverySupport"
+            level="${sys:log4j2.jqwik.discovery:-INFO}" />
 
-    <Root level="${sys:log4j2.root.level:-TRACE}">
+    <Root level="${sys:log4j2.root.level:-TRACE}"> <!-- you _could_ override the root level, but filtering is done by appenders, so this is not recommended  -->
       <AppenderRef ref="stdout"/>
       <AppenderRef ref="stderr" />
     </Root>
