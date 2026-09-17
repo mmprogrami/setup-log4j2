@@ -5,25 +5,25 @@
 image:https://img.shields.io/maven-central/v/nl.mmprogrami/setup-log4j2.svg[MavenCentral,link=https://central.sonatype.com/search?q=g%3Anl.mmprogrami]
 
 
-Just arranges dependencies to set up log4j2. Arranges logging from jul and slf4j (1 &amp; 2) to log4j2.
+Arranges dependencies to set up log4j2, incliding logging from jul and slf4j (1 &amp; 2) to log4j2.
 
 == Ratio
 
-What I was seeing in many of the projects i was maintaining is that there was a lot of cruft just related to setting up logging. Especially in tests we oftentimes wound up with something
+What I was seeing in many of the projects I was maintaining is that there was a lot of cruft just related to setting up logging. Especially in tests, we oftentimes wound up with something
 like this in every module of the project
 
-- <module>/src/test/resources/log4j2-test.xml
-- <module>/pom.xml several dependencies in the pom.xml to pull in log4j2, slf4j and perhaps jul bridges
+- `<module>/src/test/resources/log4j2-test.xml`
+- `<module>/pom.xml` with several dependencies to pull in log4j2, slf4j and perhaps jul bridges
 
 The second thing can be avoided by putting it in the parent pom. But this is not the case for the first thing.
 
-So, the basic idea is to just provide a simple jar dependency, which transitively pulls in the necessary dependencies. This is kind of 'opiniated'. We just want log4j2 to be the logging framework, and want to have as much of available logging to show up if wanted, where at least slf4j/log4j2/jul/system logging can be expected. Just one simple depenency suffices then.
+So, the basic idea is to just provide a simple jar dependency, which transitively pulls in the necessary dependencies. This is kind of 'opinionated'. We just want log4j2 to be the logging framework and want to have as much of available logging to show up if wanted, where at least slf4j/log4j2/jul/system logging can be expected. Just one simple dependency suffices then.
 
-A variant of the same dependency (with classifier 'test')  also includes a log4j2 configuration file.  This can be used as a 'test' dependency, which suffices for most cases.
+A variant of the same dependency (with a classifier `test`)  also includes a log4j2 configuration file.  This can be used as a 'test' dependency, which suffices for most cases.
 
 image:screenshot.png[]
 
-So, colorized, tab separated logging, no dates (which is pointless for tests). The pattern and can be overridden as a property of the surefire plugin, or as a command line parameter, which  keeps things simpler still.
+So, colorized, tab separated logging, no dates, (which is pointless for tests). The pattern and can be overridden as a property of the surefire plugin, or as a command line parameter, which  keeps things simpler still.
 
 
 == Usage
@@ -61,10 +61,10 @@ This is possible too:
 </dependency>
 ----
 
-This will accomplish the same things, but this jar also includes a default `log4j2-test.xml` configuration file, which will then be used when running tests. This is useful if you want to use logging in your test with minimal hassle in setting it up. You don't even have to provide log4j2 configuration then. It will log INFO and above to the console.
+This will achieve the same things, but this jar also includes a default `log4j2-test.xml` configuration file, which will then be used when running tests. This is useful if you want to use logging in your test with minimal hassle in setting it up. You don't even have to provide log4j2 configuration then. It will log INFO and above to the console (WARN and above to stderr)
 
 [#_override_the_root_level]
-=== Override the root level
+=== Override the base level
 
 You can any time place an overriding `src/main/test/resources/log4j-test.xml` anyway, but a few things can also be configured using system properties:
 
