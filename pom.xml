@@ -225,6 +225,27 @@
         <defaultGoal>deploy</defaultGoal>
         <plugins>
           <plugin>
+            <!-- https://github.com/sonatype-nexus-community/central-publishing-maven-plugin/issues/2 -->
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <version>3.6.3</version>
+            <executions>
+              <execution>
+                <id>enforce-maven-for-deploy</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireMavenVersion>
+                      <version>[3.9,3.10)</version>
+                      <message>Deploying is broken with Maven 3.10+ (central-publishing-maven-plugin#2); use Maven 3.9.x</message>
+                    </requireMavenVersion>
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
             <artifactId>maven-gpg-plugin</artifactId>
             <version>3.2.8</version>
             <executions>
